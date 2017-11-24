@@ -1,23 +1,34 @@
 public class OrderedSuperArray extends SuperArray{
-
     public OrderedSuperArray(){
 	super();
     }
-
     public void add(int index, String value){
 	add(value);
     }
+    /*
     public boolean add(String value){
-	if(size()==0){
-	    String[] oneSlotArray = {value};
-	    return true;
+	int i = data.length/2;
+	String[] a = data;
+	if(a[i]==null){
+	    continue;
 	}
-        for(int i=0;i<size();i++){
-	    if(data[i].compareTo(value)<0 && data[i+1].compareTo(value)>0){
-		super.add(i+1,value);
-		return true;
-	    }
+	if(a[i].compareTo(value)==0){
+	    super.add(i,value);
 	}
-	return false;
+	if(a[i].compareTo(value)>0){
+	    
+	return true;
+	}
+    }
+    */
+    
+    public OrderedSuperArray slice(int start, int end){
+	OrderedSuperArray result = new String[end-start];
+	int index=0;
+	for(int i=start;i<end;i++){
+	    result[index]=data()[i];
+	    index++;
+	}
+	return result;
     }
 }
