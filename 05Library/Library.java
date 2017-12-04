@@ -125,14 +125,14 @@ public class Library {
 		lib.checkout("Donald Duck", "March 1, 2012", "QA43.W34");
 		lib.checkout("Donald Duck", "March 12, 2012", "QA76.6.W3275");
 		System.out.print("FAIL: ");
-		lib.checkout("Donald Duck", "March 6, 2012", "64.2 R25ex");
+		//lib.checkout("Donald Duck", "March 6, 2012", "64.2 R25ex");
 		lib.checkout("Minnie Mouse", "April 1, 2012", "64.2 25e");
 
 		System.out.print("FAIL: ");
 		lib.checkout("Goofy", "February 28, 2012", "12345");
 		lib.returned("QA76.6.W3275");
 		System.out.print("FAIL: ");
-		lib.returned("64.2 R25ex");
+		//lib.returned("64.2 R25ex");
 		lib.checkout("Goofy", "March 28, 2012", "QA76.6.W3275");
 		// print final status of library
 		lib.printLibrary();

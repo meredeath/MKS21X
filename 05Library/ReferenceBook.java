@@ -18,14 +18,14 @@ public class ReferenceBook extends LibraryBook{
 	this.collection=collection;
     }
     public void checkout(String patron, String due){
-	throw new UnsupportedOperationException("reference book cannot be checkout out");
+	throw new UnsupportedOperationException("reference book cannot be checked out");
     }
     public void returned(){
 	throw new UnsupportedOperationException("reference book could not have been returned");
     }
 
     public String circulationStatus(){
-	throw new UnsupportedOperationException("non-circulating reference book");
+	return "non-circulating reference book";
     }
 
     public String toString(){
