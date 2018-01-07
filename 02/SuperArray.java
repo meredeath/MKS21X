@@ -32,7 +32,7 @@ public class SuperArray{
     }
 
     public String get(int index){
-	if(index<0||index>= data.length){
+	if(index<0||index>= size()){
 	    throw new UnsupportedOperationException();
 	}
 	else
@@ -51,7 +51,7 @@ public class SuperArray{
     }
 
     public String set(int index, String element){
-	if(index<0||index>=data.length){
+	if(index<0||index>=size()){
 	    throw new UnsupportedOperationException();
 	}
 	String old = get(index);
@@ -94,7 +94,7 @@ public class SuperArray{
 		return i;
 	}
 	System.out.println("not found");
-	return 0;
+	return -1;
     }
 
     public int lastIndexOf(String target){
@@ -115,20 +115,16 @@ public class SuperArray{
     
     public void add(int index, String element) {
         String[] newAry = new String[data.length + 1];
-	if(index<0||index>data.length){
+	if(index<0||index>=size()){
 	    throw new UnsupportedOperationException();
 		}
         for (int x = 0; x <data.length; x++){
-	    if(data[x]!=null){
 		if (x <index){
 		    newAry[x]=data[x];
 		}
 		if(x>=index){
 		    newAry[x+1]=data[x];
 		}
-	    }else{
-		continue;
-	    }
         }
 	newAry[index]=element;
         data = newAry;
@@ -136,7 +132,7 @@ public class SuperArray{
     }
 
     public String remove(int index){
-	if(index<0||index>=data.length){
+	if(index<0||index>size()){
 	    throw new UnsupportedOperationException();
 	}
 	String stuff = get(index);
@@ -149,12 +145,21 @@ public class SuperArray{
     }
     
     public boolean remove(String element){
+	/*
 	if(!contains(element)){
 	    return false;
 	}else{
 	    remove(indexOf(element));
 	}
 	return true;
+	*/
+	for(int i=0;i<size();i++){
+	    if(data[i].equals(element)){
+		remove(i);
+		return true;
+	    }
+	}
+	return false;
     }
 
     public SuperArray slice(int start, int end){
