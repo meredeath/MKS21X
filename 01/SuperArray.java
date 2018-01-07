@@ -114,11 +114,14 @@ public class SuperArray{
     }
     
     public void add(int index, String element) {
-        String[] newAry = new String[data.length + 1];
 	if(index<0||index>=size()){
 	    throw new UnsupportedOperationException();
 		}
-        for (int x = 0; x <data.length; x++){
+	if(size==data.length){
+	    resize();
+	}
+	String[] newAry = new String[data.length];
+        for (int x = 0; x <size(); x++){
 		if (x <index){
 		    newAry[x]=data[x];
 		}
