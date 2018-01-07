@@ -45,23 +45,25 @@ public class OrderedSuperArray extends SuperArray{
     */
     public boolean add(String value){
 	if(size()==0){
-	    super.add(0,value);
+	    super.add(value);
 	    return true;
 	}
+	/*
 	if(size()==1){
 	    if(data()[0].compareTo(value)<0){
-		super.add(0,value);
+		super.add(value);
 		return true;
 	    }else{
-		super.add(1,value);
+		super.add(0,value);
 		return true;
 	    }
 	}
-	int high = size()-1;
+	*/
+	int high = size();
 	int low = 0;
 	int guess = 0;
-	while(high>=low){
-	    guess = (high-low)/2;
+	while(high>low){
+	    guess = (high+low)/2;
 	    if(data()[guess].compareTo(value)>0){
 		high = guess-1;
 	    }else if(data()[guess].compareTo(value)<0){
@@ -71,7 +73,7 @@ public class OrderedSuperArray extends SuperArray{
 		return true;
 	    }
 	}
-	super.add(guess,value);
+	super.add(low,value);
 	return true;
     }
 
