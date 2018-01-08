@@ -19,9 +19,12 @@ public class Sorts{
 
     public static void selectionSort(int[] data){
 	int min = 0;
+	int minIndex = 0;
 	for(int i=0;i<data.length-1;i++){
-	    min=Math.min(data[i],data[i+1]);
+	    min=Math.min(min,data[i]);
+	    minIndex=i;
 	}
+	
     }
 
     public static void insertionSort(int[] ary){
