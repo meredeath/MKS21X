@@ -7,7 +7,7 @@ public class SuperArrayIterator implements Iterator<String>{
     public SuperArrayIterator(SuperArray input){
 	sup = input;
 	current=0;
-	end=input.size();
+	end=input.size()-1;
     }
     
     public void remove(){
