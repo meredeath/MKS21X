@@ -8,7 +8,7 @@ public class Sorts{
 	System.out.println(isSorted(anArray));
 	System.out.println(name());
 	System.out.println(java.util.Arrays.toString(anArray));
-	insertionSort(anArray);
+	selectionSort(anArray);
 	System.out.println(java.util.Arrays.toString(anArray));
 	System.out.println(isSorted(anArray));
     }
@@ -18,12 +18,19 @@ public class Sorts{
     }
 
     public static void selectionSort(int[] data){
-	int min = 0;
-	int minIndex = 0;
-	for(int i=0;i<data.length-1;i++){
-	    min=Math.min(min,data[i]);
-	    minIndex=i;
+	int minIndex=0;
+	int min=0;
+	for(int i=0;i<data.length;i++){
+	    min=data[i];
+	    for(int g=i;g<data.length;g++){
+		if(data[g]<min){
+		    minIndex=g;
+		    min=data[g];
+		}
+	    }
+	    swap(data,minIndex,i);
 	}
+	return;
 	
     }
 
