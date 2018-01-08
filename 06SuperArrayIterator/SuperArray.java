@@ -1,5 +1,6 @@
+import java.util.*;
 import java.lang.UnsupportedOperationException;
-public class SuperArray{
+public class SuperArray implements Iterable<String>{
     private String[] data;
     private int size;
 
@@ -163,6 +164,10 @@ public class SuperArray{
 	    }
 	}
 	return false;
+    }
+
+    public Iterator<String> iterator(){
+	return new SuperArrayIterator(this);
     }
 
     public SuperArray slice(int start, int end){
