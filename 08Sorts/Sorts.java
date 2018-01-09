@@ -8,9 +8,21 @@ public class Sorts{
 	System.out.println(isSorted(anArray));
 	System.out.println(name());
 	System.out.println(java.util.Arrays.toString(anArray));
-	selectionSort(anArray);
+	//selectionSort(anArray);
+	//bogoSort(anArray);
+	insertionSort(anArray);
 	System.out.println(java.util.Arrays.toString(anArray));
 	System.out.println(isSorted(anArray));
+	/*
+	int[] anArr = new int[4];
+	anArr[0]=3;
+	anArr[1]=2;
+	anArr[2]=0;
+	anArr[3]=1;
+	selectionSort(anArr);
+	System.out.println(java.util.Arrays.toString(anArr));
+	System.out.println(isSorted(anArr));
+	*/
     }
     
     public static String name(){
@@ -23,11 +35,13 @@ public class Sorts{
 	for(int i=0;i<data.length;i++){
 	    min=data[i];
 	    for(int g=i;g<data.length;g++){
-		if(data[g]<min){
+		if(data[g]<=min){
 		    minIndex=g;
 		    min=data[g];
 		}
 	    }
+	    System.out.println(data[minIndex]);
+	    System.out.println(min);
 	    swap(data,minIndex,i);
 	}
 	return;
@@ -38,11 +52,21 @@ public class Sorts{
 	int index=1;
 	while(index<ary.length){
 	    int j=index;
-	    while(j>0 && ary[j]>ary[j-1]){
+	    while(j>0 && ary[j-1]>ary[j]){
 		swap(ary,j,j-1);
 		j=j-1;
 	    }
 	    index++;
+	}
+    }
+    public static void bogoSort(int[] ary){
+	while(!isSorted(ary)){
+	    for(int i=0;i<ary.length;i++){
+		int temp = ary[i];
+		int newSpot = (int)(Math.random()*ary.length);
+		ary[i]=ary[newSpot];
+		ary[newSpot]=temp;
+	    }
 	}
     }
     public static void swap(int[] ary, int a, int b){
@@ -59,4 +83,5 @@ public class Sorts{
 	}
 	return true;
     }
+    
 }
