@@ -10,7 +10,8 @@ public class Sorts{
 	System.out.println(java.util.Arrays.toString(anArray));
 	//selectionSort(anArray);
 	//bogoSort(anArray);
-	insertionSort(anArray);
+	//insertionSort(anArray);
+	bubbleSort(anArray);
 	System.out.println(java.util.Arrays.toString(anArray));
 	System.out.println(isSorted(anArray));
 	/*
@@ -69,6 +70,16 @@ public class Sorts{
 	    }
 	}
     }
+    public static void bubbleSort(int[] ary){
+	for(int i=0;i<ary.length;i++){
+	    for(int g=0;g<ary.length-i-1;g++){
+		if(ary[g]>=ary[g+1]){
+		    swap(ary,g,g+1);
+		}
+	    }
+	}
+    }
+
     public static void swap(int[] ary, int a, int b){
 	int temp=ary[b];
 	ary[b]=ary[a];
