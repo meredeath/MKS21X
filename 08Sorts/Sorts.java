@@ -77,6 +77,9 @@ public class Sorts{
 		    swap(ary,g,g+1);
 		}
 	    }
+	    if(isSorted(ary)){
+		return;
+	    }
 	}
     }
 
