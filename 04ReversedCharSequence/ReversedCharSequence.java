@@ -12,6 +12,9 @@ public class ReversedCharSequence implements CharSequence{
 
     //constructs a reversed version of the string
     public ReversedCharSequence(String regular){
+	if(regular==null){
+	    throw new UnsupportedOperationException();
+	}
 	original=regular;
 	reversed="";
 	for(int i = regular.length()-1;i>=0;i--){
@@ -31,7 +34,7 @@ public class ReversedCharSequence implements CharSequence{
     
     //is like substring, but for ReversedCharSequences
     public ReversedCharSequence subSequence(int start, int end){
-	String result = reversed.substring(start,end);
+	String result = original.substring(start,end);
 	ReversedCharSequence ans = new ReversedCharSequence(result);
 	return ans;
     }
